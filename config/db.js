@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 // import User from "../models/userSchema.js";
 
-const url = "mongodb+srv://sm00976849:OaGWplGlGF75hZU6@cluster0.jer9k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0; // MongoDB URL from environment variable"
+const url = "mongodb+srv://mohitsainisaini2680:mohitsaini21@cluster0.wjx3j.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0"
 
 export const ConnectDB = async () => {
   try {
