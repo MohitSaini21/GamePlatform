@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Minecraft Projects</title>
+    <meta name="description" content="" />
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"--->
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="../icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,500,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/icons/icomoon.css" />
+    <link rel="stylesheet" href="/icons/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/dist/css/swiper.min.css" />
+    <link rel="stylesheet" href="/faq/css/style.css" />
+    <!-- Resource style -->
+    <script src="/faq/js/modernizr.js"></script>
+
+    <!-- Modernizr -->
+
+    <!-- custom css -->
+     <style>
+           /* Ensure border is visible on input by default */
+        .form-control {
+            border: 2px solid #ccc; /* Default border color */
+        }
+
+        /* Optionally, change border color on focus */
+        .form-control:focus {
+            border-color: #007bff; /* Blue border on focus */
+            box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25); /* Optional blue shadow */
+        }
+     </style>
+  </head>
+  <body>
+    <!-- Page Content START -->
+    <div class="page-content">
+      <!-- Main Nav START -->
+        <%- include('../partials/nav.ejs') %>
+      <!-- Main Nav END -->
+      <!-- Home Section START -->
+      <span class="no-intro"></span>
+      <!-- Home Section END -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-9">
+            <span class="name-rog">
+              <div class="hr-line"></div>
+             Feed Back Time
+            </span>
+            <br>
+            <div class="promo-donate">
+              <div class="col-md-1 dv lv"></div>
+              <div class="col-md-10 lv">
+                <h3 class="th-name">FeedBack:</h3>
+                <p class="desctop">
+                  We’d love to hear your thoughts! Please take a moment to provide your feedback..
+                  <br /><br />
+       <form>
+           <div class="mb-3 ">
+             <label for="exampleInputEmail1" class="form-label">userName</label>
+             <input readonly placeholder="Enter your userName" value="<%= user.userName  %>" type="text" class="form-control"  id="userName" aria-describedby="emailHelp">
+             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+           </div>
+  <div class="mb-3 ">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input readonly placeholder="Enter your unquie email" value="<%=user.email  %>" type="email" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+ <div class="mb-3">
+  <label for="feedbackTextarea" class="form-label">Feedback</label>
+  <textarea placeholder="Enter your feedback here..." class="form-control" id="feedbackTextarea" rows="4"></textarea>
+</div>
+
+
+
+
+
+  
+</form>
+                  
+                </p>
+       <button type="button" class="btn btn-success" onclick="Submit()">Submit</button>
+ <button type="button" class="btn btn-warning" onclick="Reset()">Reset</button>
+              </div>
+            </div>
+
+            <span class="name-rog">
+              <div class="hr-line"></div>
+              Listen
+            </span>
+            <div class="cd-faq-items">
+              <ul id="basics" class="cd-faq-group">
+                <br />
+              
+                
+                <li>
+                  <a class="cd-faq-trigger" href="#"
+                    >what is the Concept of latest feedback ?</a
+                  >
+                  <div class="cd-faq-content">
+              <p>
+  Please note that if you submit the feedback form multiple times, only your latest submission will be considered. Make sure your message is complete before submitting to avoid multiple submissions.
+</p>
+
+                  </div>
+                  <!-- cd-faq-content -->
+                </li>
+              </ul>
+              <!-- cd-faq-group -->
+            </div>
+            <!-- cd-faq-items -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- custom Script -->
+    <script>
+        function Submit(){
+ 
+            
+      const feedBack = document.getElementById('feedbackTextarea').value; // Password
+
+      
+
+      // Validate form data (you can add more checks as per your requirements)
+      if (!feedBack) {
+        alert("Please fill out all feedBack First.");
+        return;
+      }
+
+      
+         // Create a data object to send in the POST request
+      const formData = {
+
+        
+        feedBack: feedBack,
+
+        
+      };
+
+
+   // Make the POST request using Fetch API
+fetch("http://localhost:5000/user/feedBack", {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+.then(response => {
+  return response.json(); // Assuming the response is in JSON format
+})
+.then(data => {
+    
+
+
+
+   
+    alert(data.message)
+
+
+    
+  Reset(); // Reset the form if submission is successful
+})
+.catch(error => {
+  // Handle any errors (network issues, server errors, etc.)
+  alert(`An error occurred: ${error.message}`);
+});
+        }
+  function Reset() {
+
+    
+    document.querySelector('form').reset();
+}
+    </script>
+    <!-- custom Script -->
+    <!-- Page Content END -->
+    <script src="/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        hashNavigation: {
+          watchState: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <script src="/faq/js/jquery-2.1.1.js"></script>
+    <script src="/faq/js/jquery.mobile.custom.min.js"></script>
+    <script src="/faq/js/main.js"></script>
+    <!-- Resource jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/circle-progress.js"></script>
+    <script src="/js/examples.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

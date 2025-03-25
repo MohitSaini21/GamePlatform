@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Minecraft Projects</title>
+    <meta name="description" content="" />
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"--->
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="../icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,500,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/icons/icomoon.css" />
+    <link rel="stylesheet" href="/icons/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/dist/css/swiper.min.css" />
+    <link rel="stylesheet" href="/faq/css/style.css" />
+    <!-- Resource style -->
+    <script src="/faq/js/modernizr.js"></script>
+    <style>
+                   /* Ensure border is visible on input by default */
+        .form-control {
+            border: 2px solid #ccc; /* Default border color */
+        }
+
+        /* Optionally, change border color on focus */
+        .form-control:focus {
+            border-color: #007bff; /* Blue border on focus */
+            box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25); /* Optional blue shadow */
+        }
+    </style>
+    <!-- Modernizr -->
+  </head>
+  <body>
+    <!-- Page Content START -->
+    <div class="page-content">
+      <!-- Main Nav START -->
+      <%- include('../partials/nav.ejs') %>
+      <!-- Main Nav END -->
+      <!-- Home Section START -->
+      <span class="no-intro"></span>
+      <!-- Home Section END -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-9">
+            <span class="name-rog">
+              <div class="hr-line"></div>
+              Login Form
+            </span>
+            <div class="promo-donate">
+              <div class="col-md-1 dv lv"></div>
+              <div class="col-md-10 lv">
+                <h3 class="th-name">Login Form:</h3>
+                <p class="desctop">
+       
+                Kindly ensure that you complete the registration process first before logging in. Failing to do so may not align with best practices for optimal usage.
+                   
+       <form>
+     
+        
+  <div class="mb-3 ">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input placeholder="Enter your unquie email" type="email" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label ">Password</label>
+    <input placeholder="Choose Secure Password" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+    
+  
+
+  
+</form>
+                  
+                  
+                </p>
+      <button type="button" class="btn btn-primary" onclick="Submit()">Submit</button>
+ <button type="button" class="btn btn-danger" onclick="Reset()">Reset</button>
+              </div>
+            </div>
+
+            <span class="name-rog">
+              <div class="hr-line"></div>
+              let me remind you
+            </span>
+            <div class="cd-faq-items">
+              <ul id="basics" class="cd-faq-group">
+                <br />
+                <li>
+                  <a class="cd-faq-trigger" href="#">Age Criteria.</a>
+                  <div class="cd-faq-content">
+                    <p>
+                      pls Make sure you are old enough to play digital games.
+                    </p>
+                  </div>
+                  <!-- cd-faq-content -->
+                </li>
+            
+                
+              </ul>
+              <!-- cd-faq-group -->
+            </div>
+            <!-- cd-faq-items -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- custom Script -->
+     <script>
+        function Submit(){
+
+            
+      const email = document.getElementById('exampleInputEmail1').value; // Email
+      const password = document.getElementById('exampleInputPassword1').value; // Password
+    
+      
+
+      // Validate form data (you can add more checks as per your requirements)
+      if (!email || !password) {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+
+      
+      const formData = {
+
+        
+        email: email,
+        password: password,
+
+        
+      };
+
+
+   // Make the POST request using Fetch API
+fetch("http://localhost:5000/login", {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+.then(response => {
+  return response.json(); // Assuming the response is in JSON format
+})
+.then(data => {
+
+    if(data.success === false){
+        alert(data.message)
+          Reset(); // Reset the form if submission is successful
+        return
+    }
+
+
+window.location.href='/'
+
+    
+
+    
+
+
+  return
+})
+.catch(error => {
+  // Handle any errors (network issues, server errors, etc.)
+  alert(`An error occurred: ${error.message}`);
+});
+        }
+  function Reset() {
+
+    
+    document.querySelector('form').reset();
+}
+    </script>
+    <!-- custom Script -->
+    <!-- Page Content END -->
+    <script src="/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        hashNavigation: {
+          watchState: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <script src="/faq/js/jquery-2.1.1.js"></script>
+    <script src="/faq/js/jquery.mobile.custom.min.js"></script>
+    <script src="/faq/js/main.js"></script>
+    <!-- Resource jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/circle-progress.js"></script>
+    <script src="/js/examples.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

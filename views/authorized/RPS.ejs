@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Minecraft Projects</title>
+    <meta name="description" content="" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="../icon.png" />
+
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,500,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/icons/icomoon.css" />
+    <link rel="stylesheet" href="/icons/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/dist/css/swiper.min.css" />
+    <style>
+ 
+ 
+    .btn-choice {
+      font-size: 2rem;
+      margin: 10px;
+      width: 150px;
+      height: 150px;
+    }
+    .result-message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+    .scoreboard {
+      font-size: 1.25rem;
+      margin-top: 20px;
+    }
+    .result-message, .scoreboard {
+      font-weight: bold;
+    }
+
+
+    
+  </style>
+  </head>
+  <body>
+    <!-- Page Content START -->
+    <div class="page-content">
+      <!-- Main Nav START -->
+      <%- include('../partials/nav.ejs') %>
+      <!-- Main Nav END -->
+      <!-- Home Section START -->
+      <span class="no-intro"></span>
+      <!-- Home Section END -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-9">
+            <span class="name-rog">
+              <div class="hr-line"></div>
+              Rock Paper Scissor
+            </span>
+
+            <div class="promo-donate">
+              <div class="col-md-1 dv lv">
+                <span class="ic-love"></span>
+              </div>
+              <div class="col-md-10 lv">
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="/"
+                >
+                  Back
+                </a>
+                <br />
+                <br />
+
+                <h3 class="th-name">RPS:</h3>
+                <p class="desctop">
+              Rock, Paper, Scissors is a classic hand game that is played by two people. Each player simultaneously forms one of three shapes with their hand: rock (a fist), paper (an open hand), or scissors (a fist with the index and middle fingers extended, forming a V). The game’s outcome is determined by the interactions between these shapes: rock crushes scissors, scissors cuts paper, and paper covers rock. ing small decisions.
+                  <br /><br />
+         The simplicity of the game, combined with its element of chance and strategy, makes it a popular decision-making tool and a fun pastime worldwide. It’s often used in casual settings, from friendly competition to breaking ties or mak
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      
+
+      
+
+
+        
+      </div>
+
+    <div class="container game-container">
+  <h1>Rock Paper Scissors Game</h1>
+
+  <!-- Buttons for player choices -->
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-outline-primary btn-choice" id="rock">Rock</button>
+    <button class="btn btn-outline-secondary btn-choice" id="paper">Paper</button>
+    <button class="btn btn-outline-danger btn-choice" id="scissors">Scissors</button>
+  </div>
+
+  <!-- Display result and score -->
+  <div class="result-message" id="resultMessage"></div>
+  <div class="scoreboard">
+    <p>Player Score: <span id="playerScore">0</span></p>
+    <p>Computer Score: <span id="computerScore">0</span></p>
+  </div>
+
+  <button id="resetButton" class="btn btn-warning mt-4">Reset Game</button>
+  <br><br><br>
+</div>
+
+    </div>
+ 
+    <script>
+  let playerScore = 0;
+  let computerScore = 0;
+
+  const playerScoreDisplay = document.getElementById('playerScore');
+  const computerScoreDisplay = document.getElementById('computerScore');
+  const resultMessage = document.getElementById('resultMessage');
+
+  const choices = ['rock', 'paper', 'scissors'];
+
+  // Function to get computer's choice
+  const getComputerChoice = () => {
+    const randomIndex = Math.floor(Math.random() * 3);
+    return choices[randomIndex];
+  };
+
+  // Function to play a round of the game
+  const playRound = (playerChoice) => {
+    const computerChoice = getComputerChoice();
+
+    // Determine winner
+    if (playerChoice === computerChoice) {
+      resultMessage.textContent = `It's a draw! Both chose ${playerChoice}.`;
+    } else if (
+      (playerChoice === 'rock' && computerChoice === 'scissors') ||
+      (playerChoice === 'scissors' && computerChoice === 'paper') ||
+      (playerChoice === 'paper' && computerChoice === 'rock')
+    ) {
+      playerScore++;
+      resultMessage.textContent = `You win! ${playerChoice} beats ${computerChoice}.`;
+    } else {
+      computerScore++;
+      resultMessage.textContent = `You lose! ${computerChoice} beats ${playerChoice}.`;
+    }
+
+    // Update scores
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+  };
+
+  // Event listeners for player choices
+  document.getElementById('rock').addEventListener('click', () => playRound('rock'));
+  document.getElementById('paper').addEventListener('click', () => playRound('paper'));
+  document.getElementById('scissors').addEventListener('click', () => playRound('scissors'));
+
+  // Reset the game
+  document.getElementById('resetButton').addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+    resultMessage.textContent = '';
+  });
+
+</script>
+
+ 
+    <!-- Page Content END -->
+    <script src="/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        hashNavigation: {
+          watchState: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/circle-progress.js"></script>
+    <script src="/js/examples.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

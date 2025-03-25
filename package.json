@@ -1,0 +1,22 @@
+{
+  "name": "mit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+    "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+        "jsonwebtoken": "^9.0.2",
+         "moment-timezone": "^0.5.47",
+           "mongoose": "^8.9.2"
+  }
+}

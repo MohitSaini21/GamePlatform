@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Minecraft Projects</title>
+    <meta name="description" content="" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="../icon.png" />
+
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,500,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/icons/icomoon.css" />
+    <link rel="stylesheet" href="/icons/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/dist/css/swiper.min.css" />
+    <style>
+    /* Ensure the iframe takes full width of its parent */
+    .iframe-container {
+      width: 100%;
+      height: 600px; /* Adjust height according to your needs */
+      overflow: hidden;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Remove default border */
+      display: block; /* Ensure no extra space below iframe */
+    }
+
+    /* Regarding TTT */
+     .tic-tac-toe-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 5px;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+    }
+    .tic-tac-toe-cell {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #000;
+      font-size: 2rem;
+      cursor: pointer;
+      background-color: #f8f9fa;
+    }
+    .tic-tac-toe-cell:hover {
+      background-color: #e2e6ea;
+    }
+
+    
+  </style>
+  </head>
+  <body>
+    <!-- Page Content START -->
+    <div class="page-content">
+      <!-- Main Nav START -->
+      <%- include('../partials/nav.ejs') %>
+      <!-- Main Nav END -->
+      <!-- Home Section START -->
+      <span class="no-intro"></span>
+      <!-- Home Section END -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-9">
+            <span class="name-rog">
+              <div class="hr-line"></div>
+              Tic Tac Toe
+            </span>
+
+            <div class="promo-donate">
+              <div class="col-md-1 dv lv">
+                <span class="ic-love"></span>
+              </div>
+              <div class="col-md-10 lv">
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="/"
+                  style="text-decoration: none;"
+                >
+                  Back
+                </a>
+                <br />
+                <br />
+
+                <h3 class="th-name">Tic Tac Toe:</h3>
+                <p class="desctop">
+                  Tic-Tac-Toe is a two-player game played on a 3x3 grid where
+                  the objective is to get three of your marks in a row, either
+                  horizontally, vertically, or diagonally. One player uses "X"
+                  and the other uses "O," and they take turns placing their
+                  symbols on the grid. The first player to align three of their
+                  symbols wins the game. If all nine squares are filled and no
+                  player has three in a row, the game ends in a draw. To play,
+                  players start by choosing their symbols, with one going first,
+                  typically using "X." The game can end early if a player gets
+                  three symbols in a row, but if no one wins after all spaces
+                  are filled, it results in a tie. Players should aim to control
+                  the center, block their opponent from winning, and create
+                  opportunities to win with multiple options.
+                  <br /><br />
+                  Strategy involves thinking ahead, using the edges and corners
+                  wisely, and preventing the opponent from forming a line.
+                  Tic-Tac-Toe is quick and easy to play but can be surprisingly
+                  strategic for experienced players.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+<div class="container">
+  <h1 class="mb-4">Tic Tac Toe Game</h1>
+  <div id="message" class="mb-3"></div>
+  <div class="tic-tac-toe-board">
+    <div class="tic-tac-toe-cell" data-cell="0"></div>
+    <div class="tic-tac-toe-cell" data-cell="1"></div>
+    <div class="tic-tac-toe-cell" data-cell="2"></div>
+    <div class="tic-tac-toe-cell" data-cell="3"></div>
+    <div class="tic-tac-toe-cell" data-cell="4"></div>
+    <div class="tic-tac-toe-cell" data-cell="5"></div>
+    <div class="tic-tac-toe-cell" data-cell="6"></div>
+    <div class="tic-tac-toe-cell" data-cell="7"></div>
+    <div class="tic-tac-toe-cell" data-cell="8"></div>
+  </div>
+  <button id="resetButton" class="btn btn-primary mt-3">Restart Game</button>
+  <br><br><br>
+</div>
+
+
+        
+      </div>
+    </div>
+         <script>
+    function addBlooperCSS() {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .confetti {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: #ff4081;
+                animation: confettiFall 4s linear infinite;
+            }
+
+            @keyframes confettiFall {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function createBlooper() {
+        // Create Confetti and add them as the first child of body
+        for (let i = 0; i < 30; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.backgroundColor = getRandomColor();
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.prepend(confetti); // Add the confetti as the first child
+        }
+
+        // Stop the confetti after 5 seconds
+        setTimeout(() => {
+            const confettis = document.querySelectorAll('.confetti');
+            confettis.forEach(confetti => {
+                confetti.style.animationPlayState = 'paused';
+                confetti.style.opacity = '0';
+            });
+        }, 7000); // Stop after 5 seconds
+    }
+
+    // Helper function to get random color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Call this function to add the CSS dynamically
+    addBlooperCSS();
+
+    
+    
+</script>
+
+    <script>
+  const board = document.querySelector('.tic-tac-toe-board');
+  const cells = Array.from(document.querySelectorAll('.tic-tac-toe-cell'));
+  const messageElement = document.getElementById('message');
+  const resetButton = document.getElementById('resetButton');
+  let currentPlayer = 'X';
+  let gameState = Array(9).fill(null);
+
+  // Check for a winner
+  const checkWinner = () => {
+    const winningCombinations = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+      [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+    
+    for (let combo of winningCombinations) {
+      const [a, b, c] = combo;
+      if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
+        messageElement.textContent = `${currentPlayer} Wins!`;
+         createBlooper();
+        return true;
+      }
+    }
+    if (gameState.every(cell => cell !== null)) {
+      messageElement.textContent = "It's a Draw!";
+      return true;
+    }
+    return false;
+  };
+
+  // Handle a cell click
+  const handleCellClick = (e) => {
+    const cellIndex = e.target.dataset.cell;
+    
+    // If the cell is already filled or the game is over, do nothing
+    if (gameState[cellIndex] || messageElement.textContent) return;
+
+    gameState[cellIndex] = currentPlayer;
+    e.target.textContent = currentPlayer;
+    
+    if (!checkWinner()) {
+     
+        
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
+  };
+
+  // Reset the game
+  const resetGame = () => {
+    gameState.fill(null);
+    cells.forEach(cell => cell.textContent = '');
+    messageElement.textContent = '';
+    currentPlayer = 'X';
+  };
+
+  // Add event listeners
+  cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+  resetButton.addEventListener('click', resetGame);
+
+</script>
+    <!-- Page Content END -->
+    <script src="/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        hashNavigation: {
+          watchState: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/circle-progress.js"></script>
+    <script src="/js/examples.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

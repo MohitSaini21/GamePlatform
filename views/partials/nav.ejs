@@ -1,0 +1,57 @@
+<nav id="main-nav" class="main-nav fixed">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="nav-header d-flex justify-content-between align-items-center"
+        >
+          <a href="/" title="LOGO">
+            <img
+              class="logo-img"
+              src="/img/—Pngtree—hand drawing rubic clipart_7961407.png"
+              alt="LOGO"
+            />
+          </a>
+        </div>
+        <div class="nav-wrap">
+          <ul id="nav" class="nav-wrap__list menu">
+            <li class="current">
+              <a href="/" title="Главная">Home</a>
+            </li>
+            <li><a href="/" title="Проекте">Project Details</a></li>
+            <li>
+              <a href="/" title="Донат"><span class="red-fox">About</span></a>
+            </li>
+            <li>
+              <a href="/" title="Контакты">Terms & Conditions</a>
+            </li>
+            <% if (locals.user) { %>
+            <li>
+              <a href="/user/feedBack" title="Контакты">FeedBack</a>
+            </li>
+            <% } %>
+          </ul>
+          <% if (locals.user) { %>
+          <div class="riglt-floats-xs">
+            <a href="#" class="btn-login"
+              ><span class="ic-sx21"></span><%= user.userName %></a
+            >
+            <a href="/logout" class="btn-startgames"
+              ><span class="ic-sx22"></span> Logout
+            </a>
+          </div>
+          <% } else { %>
+          <div class="riglt-floats-xs">
+            <a href="/signup" class="btn-login"
+              ><span class="ic-sx21"></span>Sigup Now</a
+            >
+            <a href="/login" class="btn-startgames"
+              ><span class="ic-sx22"></span> Login Now
+            </a>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
