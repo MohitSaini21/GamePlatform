@@ -34,6 +34,30 @@ app.get("/", felxibleAuth, async (req, res) => {
 
   return res.render("public/index.ejs");
 });
+app.get("/projectDetails", felxibleAuth, async (req, res) => {
+  if (req.user) {
+    const user = await User.findById(req.user.id);
+    return res.render("public/project.ejs", { user });
+  }
+
+  return res.render("public/project.ejs");
+});
+app.get("/about", felxibleAuth, async (req, res) => {
+  if (req.user) {
+    const user = await User.findById(req.user.id);
+    return res.render("public/about.ejs", { user });
+  }
+
+  return res.render("public/about.ejs");
+});
+app.get("/terms", felxibleAuth, async (req, res) => {
+  if (req.user) {
+    const user = await User.findById(req.user.id);
+    return res.render("public/terms.ejs", { user });
+  }
+
+  return res.render("public/terms.ejs");
+});
 
 // auth Related
 app.get(

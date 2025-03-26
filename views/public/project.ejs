@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Project Details</title>
+    <meta name="description" content="" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="../icon.png" />
+
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,500,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/icons/icomoon.css" />
+    <link rel="stylesheet" href="/icons/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/dist/css/swiper.min.css" />
+    <style>
+    
+    </style>
+    
+    
+
+    
+
+    
+  </head>
+  <body>
+    <!-- Page Content START -->
+    <div class="page-content">
+      <!-- Main Nav START -->
+      <%- include('../partials/nav.ejs') %>
+      <!-- Main Nav END -->
+      <!-- Home Section START -->
+      <span class="no-intro"></span>
+      <!-- Home Section END -->
+      <div class="container" style="color: black;">
+        <div class="row">
+          <div class="col-lg-9 col-md-9">
+            <span class="name-rog">
+              <div class="hr-line"></div>
+              Project Details
+            </span>
+
+            <div class="promo-donate">
+              <div class="col-md-1 dv lv">
+                <span class="ic-love"></span>
+              </div>
+              <div class="col-md-10 lv">
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="/"
+                  style="text-decoration: none;"
+                >
+                  Back
+                </a>
+                <br />
+                <br />
+
+                <h3 class="th-name">Elaborations:</h3>
+              <p class="desctop" style="color: black !important;">
+    <strong>Project Overview:</strong>  
+    Our game platform, <strong>GamePlatform</strong>, is a dynamic and scalable web application that allows users to sign up, log in, and play a variety of games, including <strong>Tic-Tac-Toe (TTT)</strong>, <strong>Rock-Paper-Scissors (RPS)</strong>, and <strong>Rubik’s Cube</strong>. This platform is designed to be easily extendable, allowing us to add as many new games as we want in the future.  
+    <br /><br />
+    <strong>Key Features:</strong>  
+    <ul style="color: black !important;">
+        <li>No limit on the number of games that can be integrated, making the platform flexible for continuous expansion.</li>
+        <li>Users can provide feedback on their gaming experience, contributing to the ongoing improvement of the system.</li>
+    </ul>  
+    <br />
+    <strong style="color: black !important;">Technologies and Libraries Used:</strong>  
+    <ol style="color: black !important;">
+        <li style="color: black !important;"><strong>Node.js and Express:</strong>  
+            The backend is powered by <em>Node.js</em>, a fast and scalable JavaScript runtime, while <em>Express.js</em> facilitates server creation and API endpoint management.  
+            <ul>
+                <li >Express’s modularity allows for easy addition of new routes, game logic, and features.</li>
+            </ul>
+        </li>
+        <li><strong>EJS (Embedded JavaScript):</strong>  
+            Used for dynamic HTML rendering, ensuring unique pages and game logic for each new game.
+        </li>
+        <li><strong>JWT (JSON Web Token):</strong>  
+            Handles user authentication and session management securely.  
+            <ul>
+                <li>A JWT is generated upon login and stored for secure, seamless access.</li>
+            </ul>
+        </li>
+        <li><strong>MongoDB:</strong>  
+            Stores user data, game scores, and feedback.  
+            <ul>
+                <li>Its flexible, NoSQL structure supports new game data without rigid schema constraints.</li>
+            </ul>
+        </li>
+        <li><strong>Bcrypt:</strong>  
+            Hashes and salts user passwords for secure storage.
+        </li>
+        <li><strong>Moment-timezone:</strong>  
+            Manages accurate time tracking for game sessions and feedback, regardless of the user’s time zone.
+        </li>
+        <li><strong>Cookie-parser:</strong>  
+            Parses cookies and manages JWT tokens for smooth session persistence.
+        </li>
+        <li><strong>3D JavaScript Library:</strong>  
+            Provides a visually immersive experience for the Rubik’s Cube game, with interactive 3D elements.
+        </li>
+    </ol>  
+    <br />
+    <strong>Scalability and Future Expansion:</strong>  
+    The platform’s structure ensures seamless scalability. Future features include:  
+    <ul>
+        <li><strong>Game Expansion:</strong> Adding puzzle games, trivia, multiplayer games, etc.</li>
+        <li><strong>User Experience Customization:</strong> Personalized game options, rankings, and feedback forms.</li>
+        <li><strong>Database Flexibility:</strong> MongoDB’s structure allows storage of diverse game data (e.g., game history, player stats).</li>
+        <li><strong>Real-time Features:</strong> Minimal adjustments would enable real-time multiplayer modes and leaderboards.</li>
+    </ul>  
+    <br />
+    <strong>Current Project Features:</strong>  
+    <ul>
+        <li><strong>User Authentication:</strong> Secure sign-up and login with JWT session handling.</li>
+        <li><strong>Game Variety:</strong> Includes Tic-Tac-Toe, Rock-Paper-Scissors, and Rubik’s Cube, with flexibility for future games.</li>
+        <li><strong>Feedback System:</strong> Users can provide feedback to improve the platform.</li>
+        <li><strong>Data Persistence:</strong> MongoDB stores game progress, feedback, and user information.</li>
+        <li><strong>Security:</strong> Bcrypt handles password hashing, and JWT ensures secure authentication.</li>
+    </ul>  
+</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+      
+
+
+        
+      </div>
+    </div>
+  
+  
+        <%- include('../partials/footer.ejs') %>
+    
+    <!-- Page Content END -->
+    <script src="/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        hashNavigation: {
+          watchState: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/circle-progress.js"></script>
+    <script src="/js/examples.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
