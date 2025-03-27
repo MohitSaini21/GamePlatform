@@ -169,6 +169,19 @@
       const password = document.getElementById('exampleInputPassword1').value; // Password
       const termsAccepted = document.getElementById('exampleCheck1').checked; // Terms checkbox
 
+      // Regular expression for validating email
+
+      // Regular expression for validating email
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+// Check if the email matches the regex pattern
+if (!emailRegex.test(email)) {
+  
+   alert("pls type valid email.")
+  return;
+} 
+
+
       // Validate form data (you can add more checks as per your requirements)
       if (!userName || !email || !password) {
         alert("Please fill out all required fields.");
